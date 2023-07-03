@@ -3,10 +3,10 @@ import Heroimg from '../assets/images/hero-banner.jpg'
 
 const Hero = () => {
   return (
-    <div className='h-screen'>
-        <div className='h-full'>
+    <div className='h-1/2 py-14'>
+        <div className=''>
             <img className='h-[50%] object-cover object-left absolute' src={Heroimg} alt="" />
-            <div className='flex flex-col items-center justify-center text-center relative'>
+            <div className='flex flex-col gap-2 items-center justify-center py-20 text-center relative'>
                 <h1 className='font-[bangers] text-white text-7xl'><span className='font-[bangers] text-4xl'>High Quality</span> Pet Food</h1>
                 <p className='text-white'>Sale up to 40% off today</p>
                 <button>Shop Now</button>
