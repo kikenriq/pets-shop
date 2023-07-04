@@ -83,6 +83,10 @@
   font-family: var(--ff-bangers);
 }
 
+.carters{
+  font-family: var(--ff-carter_one);
+}
+
 /*-----------------------------------*\
   #RESET
 \*-----------------------------------*/
@@ -148,3 +152,19 @@ body {
 
 .section { padding-block: var(--section-padding); }
 
+::-webkit-scrollbar { height: 10px ;}
+
+::-webkit-scrollbar-track {
+  outline: 2px solid var(--portland-orange);
+  border-radius: var(--radius-10);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-10);
+  background-color: var(--portland-orange);
+  border: 2px solid var(--white);
+}
+
+::-webkit-scrollbar-button {
+  width: 50px;
+}
