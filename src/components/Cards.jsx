@@ -5,7 +5,7 @@ import offerbanner3 from '../assets/images/offer-banner-3.jpg'
 
 const Cards = () => {
   return (
-    <div className='flex flex-col gap-12 items-center py-28'>
+    <div className='flex flex-col gap-12 md:flex-row md:justify-center items-center py-28'>
         <div className='max-w-xs h-[210px] overflow-hidden rounded-2xl'>
         <div className='absolute py-6 px-4 items-center text-left h-[219px]'>
                 <p className='text-sm uppercase font-bold'>Selected items. Online Only</p>

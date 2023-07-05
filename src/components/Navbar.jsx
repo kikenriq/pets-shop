@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav class="bg-white w-screen  border-gray-200 fixed z-30 dark:bg-gray-900">
+    <nav class="bg-white w-screen shadow-xl border-gray-200 fixed z-30 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-5 py-3">
 
             <div class="flex lg:hidden">
