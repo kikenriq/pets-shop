@@ -5,7 +5,7 @@ import Categories from './Pages/Categories'
 import CTA from './Pages/CTA'
 import Features from './Pages/Features'
 import Hero from './Pages/Hero'
-import Items from './Pages/Items'
+import Products from './Pages/Products'
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Hero />
       <Categories />
-      <Items />
+      <Products />
       <Features />
       <CTA />
     </>
