@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "flowbite": "^1.6.6",
-    "flowbite-react": "^0.4.9",
+    "flowbite": "^1.7.0",
+    "flowbite-react": "^0.4.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
