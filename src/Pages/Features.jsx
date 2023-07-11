@@ -13,7 +13,7 @@ const Features = () => {
           <h1 className='text-4xl text-center font-semibold'><span className='text-orange-500'>What your pet needs,</span> when they need it.</h1>
         </div>
 
-        <ul className='flex flex-col gap-12'>
+        <ul className='flex flex-col gap-12 md:flex-row md:px-16'>
           <li className='flex flex-col items-center text-center px-5'>
             <img src={ft2} alt="" />
             <h1 className='text-3xl pt-1 font-semibold'>Free Same-day Delivery</h1>
