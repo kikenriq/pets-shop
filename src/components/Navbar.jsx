@@ -8,7 +8,7 @@ const resNavbar = () => {
     <Navbar
       fluid
       rounded
-      className='w-screen items-center px-4 fixed z-30 shadow-lg'
+      className='w-screen items-center px-4 md:px-48 fixed z-30 shadow-lg'
     >
         
     <Navbar.Toggle className=' bg-transparent md:hidden'/>
@@ -19,7 +19,7 @@ const resNavbar = () => {
        </a>
       </Navbar.Brand>
 
-      <div className="">
+      <div className=" md:order-2">
         <a href="#" className='text-3xl text-gray-700'>
             <ion-icon name="bag-handle-outline"></ion-icon>
         </a>
