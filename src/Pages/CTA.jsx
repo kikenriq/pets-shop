@@ -7,12 +7,12 @@ const CTA = () => {
   return (
     <div className='flex flex-row justify-center items-center h-[600px]'>
 
-      <figure className='h-[49%] absolute'>
-        <img src={ctaimg} className='w-screen h-[100%]' alt="" />
+      <figure className='h-[500px] md:h-[49%] absolute'>
+        <img src={ctaimg} className='w-screen md:object-none object-cover object-left h-[100%]' alt="" />
       </figure>
 
       <div className=''>
-        <img src={ctabg} className='relative max-w-[39rem] flex place-content-end' alt="" />
+        <img src={ctabg} className='relative hidden max-w-[39rem] md:flex place-content-end' alt="" />
       </div>
 
       <div className='relative max-w-md flex flex-col gap-4 items-baseline'>
