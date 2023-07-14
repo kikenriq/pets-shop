@@ -1,4 +1,4 @@
-import { Footer } from 'flowbite-react'
+
 import { useState } from 'react'
 import './App.css'
 import Brands from './components/Brands'
@@ -8,6 +8,7 @@ import CTA from './Pages/CTA'
 import Features from './Pages/Features'
 import Hero from './Pages/Hero'
 import Products from './Pages/Products'
+import Footer from './Pages/Footer'
 
 function App() {
 
