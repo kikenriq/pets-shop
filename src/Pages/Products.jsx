@@ -11,10 +11,10 @@ import Items from '../components/Items'
 function Products() {
   return (
     <div className='flex flex-col justify-center'>
-        <h1 className='text-3xl text-center gap-2 font-bold'><span className='text-orange-500'>Best</span>Seller</h1>
+        <h1 className='text-3xl text-center gap-2 font-bold'><span className='text-orange-500'>Best</span> Seller</h1>
 
         <div>
-            <div className=' grid gap-10 grid-cols-1 md:grid-cols-4 pt-10'>
+            <div className='grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-10'>
                 <Items
                 image={Prod1}
                 name='Commodo leo sed porta'

@@ -87,6 +87,10 @@
   font-family: var(--ff-carter_one);
 }
 
+.nunito {
+  font-family: 'Nunito Sans', sans-serif;;
+}
+
 /*-----------------------------------*\
   #RESET
 \*-----------------------------------*/
@@ -165,5 +169,5 @@ body {
 }
 
 ::-webkit-scrollbar-button {
-  width: 50px;
+  width: 150px;
 }

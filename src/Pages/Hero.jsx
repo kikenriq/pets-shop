@@ -3,13 +3,14 @@ import Heroimg from '../assets/images/hero-banner.jpg'
 
 const Hero = () => {
   return (
-    <div className='h-1/2 md:h-screen'>
-            <img className='md:w-full h-[50%] md:mt-15 md:h-auto object-cover object-left absolute' src={Heroimg} alt="" />
-            <div className='flex flex-col lg:max-w-4xl lg:top-40 gap-2 items-center justify-center py-20 text-center relative'>
-                <h1 className='font-[bangers] text-white text-6xl md:text-9xl'>High Quality<br></br>Pet Food</h1>
-                <p className='text-white'>Sale up to 40% off today</p>
-                <button>Shop Now</button>
+    <div className='w-screen pt-16 h-[400px] sm:h-auto lg:pt-0 md:justify-start flex items-center justify-center text-center relative overflow-hidden'>
+      <div className='absolute flex flex-col xl:pr-20 items-center gap-2 md:pl-20'>
+                <h1 className='font-[bangers] text-white text-6xl md:text-9xl xl:text-[10rem]'><span className='text-6xl xl:text-[5rem]'>High Quality</span><br></br>Pet Food</h1>
+                <p className='text-white lg:text-2xl'>Sale up to 40% off today</p>
+                <button className='lg:text-2xl'>Shop Now</button>
         </div>
+            <img className='h-full object-left object-cover xl:w-full' src={Heroimg} alt="" />
+        
     </div>
   )
 }

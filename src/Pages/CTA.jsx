@@ -5,29 +5,29 @@ import ctaimg2 from '../assets/images/cta-icon.png'
 
 const CTA = () => {
   return (
-    <div className='flex flex-row justify-center items-center h-[600px]'>
+    <div className='overflow-hidden relative h-[467px]'>
+      
+      <div className='md:grid grid-cols-2 md:items-end absolute'>
+          <div>
+            <img src={ctabg} className='relative hidden md:w-screen max-w-[39rem] lg:max-w-[40rem] md:flex place-content-end' alt="" />
+          </div>
 
-      <figure className='h-[500px] md:h-[49%] absolute'>
-        <img src={ctaimg} className='w-screen md:object-none object-cover object-left h-[100%]' alt="" />
-      </figure>
+          <div className=' max-w-md mt-[100px] px-12 flex flex-col gap-4 items-baseline'>
+            <img src={ctaimg2} className='h-8' alt="" />
+            <h2 class=' text-4xl font-bold'>Taste it, love it or we’ll replace it… Guaranteed!</h2>
 
-      <div className=''>
-        <img src={ctabg} className='relative hidden max-w-[39rem] md:flex place-content-end' alt="" />
+            <p class="section-text">
+              At Petio, we believe your dog and cat will love their food so much that if they don’t … we’ll help you
+              find a replacement. That’s our taste guarantee.
+            </p>
+            
+            <button>
+            <a href="#" class="btn">Find out more</a>
+            </button>
+          </div>
       </div>
 
-      <div className='relative max-w-md flex flex-col gap-4 items-baseline'>
-        <img src={ctaimg2} className='h-10' alt="" />
-        <h2 class=' text-4xl font-bold'>Taste it, love it or we’ll replace it… Guaranteed!</h2>
-
-        <p class="section-text">
-          At Petio, we believe your dog and cat will love their food so much that if they don’t … we’ll help you
-          find a replacement. That’s our taste guarantee.
-        </p>
-        
-        <button>
-        <a href="#" class="btn">Find out more</a>
-        </button>
-      </div>
+      <img src={ctaimg} className='w-screen h-full object-right object-cover' alt="" />
     </div>
   )
 }

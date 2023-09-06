@@ -5,9 +5,11 @@ import Carousel from '../components/Carousel'
 
 const Categories = () => {
   return (
-    <div className='relative w-full md:px-16'>
+    <div className='relative md:pt-10'>
       <Carousel />
+    
       <Cards />
+  
     </div>
   )
 }

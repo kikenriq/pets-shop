@@ -3,17 +3,16 @@ import footerbg from '../assets/images/footer-bg.jpg'
 
 const Footer = () => {
   return (
-    <footer className='h-full w-full'>
-      <img src={footerbg} className='absolute h-full object-cover object-center' alt="" />
-
-      <div className='relative text-white p-10 flex flex-col gap-8'>
+    <footer className=' bg-[--eerie-black] relative'>
+     
+      <div className='text-white py-12 px-4 xl:mt-[200px] gap-6 grid md:grid-cols-7 '>
         <a href="">
           <h1 className='text-2xl font-[bangers]'>Pets Shop</h1>
         </a>
       
 
-      <ul className='flex flex-col'>
-            <li class="contact-item">
+      <ul className='flex flex-col gap-4'>
+            <li class="flex items-center gap-2 font-semibold">
               <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
 
               <address>
@@ -21,7 +20,7 @@ const Footer = () => {
               </address>
             </li>
 
-            <li class="contact-item">
+            <li class="flex items-center gap-2 font-semibold">
               <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
 
               <a href="tel:+16234567891011">(+1)-6234-56-789-1011</a>
@@ -54,99 +53,101 @@ const Footer = () => {
             </li>
       </ul>
 
-      <ul>
+      <ul className='flex flex-col gap-3'>
 
           <li>
-            <p class="footer-list-title">Corporate</p>
+            <p class="font-semibold text-xl">Corporate</p>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Careers</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Careers</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">About Us</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">About Us</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Contact Us</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Contact Us</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">FAQs</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">FAQs</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Vendors</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Vendors</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Affiliate Program</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Affiliate Program</a>
           </li>
 
       </ul>
 
-      <ul>
+      <ul className='flex flex-col gap-3'>
           <li>
-            <p>Information</p>
+            <p className='font-semibold text-xl'>Information</p>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Online Store</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Online Store</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Privacy Policy</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Refund Policy</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Refund Policy</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Shipping Policy</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Shipping Policy</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Terms of Service</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Track Order</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Track Order</a>
           </li>
       </ul>
 
-      <ul>
+      <ul className='flex flex-col gap-3'>
           <li>
-            <p class="footer-list-title">Services</p>
+            <p class="font-semibold text-xl">Services</p>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Grooming</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Grooming</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Positive Dog Training</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Positive Dog Training</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Veterinary Services</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Veterinary Services</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Petco Insurance</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Petco Insurance</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Pet Adoption</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Pet Adoption</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Resource Center</a>
+            <a href="#" className="text-[--battleship-gray] hover:text-orange-400">Resource Center</a>
           </li>
       </ul>
 
       </div>
+
+      
     </footer>
   )
 }
