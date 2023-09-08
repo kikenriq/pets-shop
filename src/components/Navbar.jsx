@@ -21,30 +21,30 @@ const Navbar = () => {
             <ion-icon name="menu-outline"></ion-icon>
           </button>
 
-          <a href="#" className={`lg:${isActive ? 'lg:text-black' : 'text-white'} font-[bangers] text-4xl lg:text-5xl`}>
+          <a href="#" className={`${isActive ? 'text-black' : 'lg:text-white'} font-[bangers] text-2xl lg:text-4xl`}>
             Pet's Shop
           </a>
 
           <ul className='hidden lg:flex lg:items-center lg:gap-8'>
             <li>
-              <a className={`lg:${isActive ? 'text-black' : 'text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Home</a>
+              <a className={`${isActive ? 'lg:text-black' : 'lg:text-white'} font-semibold text-[15px] md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Home</a>
             </li>
             <li>
-              <a className={`lg:${isActive ? 'text-black' : 'text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Shop</a>
+              <a className={`${isActive ? 'lg:text-black' : 'lg:text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Shop</a>
             </li>
             <li>
-              <a className={`lg:${isActive ? 'text-black' : 'text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Collection</a>
+              <a className={`${isActive ? 'lg:text-black' : 'lg:text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Collection</a>
             </li>
             <li>
-              <a className={`lg:${isActive ? 'text-black' : 'text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Blogs</a>
+              <a className={`${isActive ? 'lg:text-black' : 'lg:text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Blogs</a>
             </li>
             <li>
-              <a className={`lg:${isActive ? 'text-black' : 'text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Contact</a>
+              <a className={`${isActive ? 'lg:text-black' : 'lg:text-white'} font-semibold text-lg md:text-xl hover:text-orange-500 ease-in-out duration-200`} href="#">Contact</a>
             </li>
           </ul>
     
 
-        <div className={`lg:${isActive ? 'text-black' : 'text-white'} flex lg:gap-10 items-center text-2xl`}> 
+        <div className={`${isActive ? 'lg:text-black' : 'lg:text-white'} flex lg:gap-10 items-center text-2xl`}> 
           <a href="#">
               <ion-icon name="bag-handle-outline"></ion-icon>
           </a>

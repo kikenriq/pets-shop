@@ -12,7 +12,7 @@ const CTA = () => {
             <img src={ctabg} className='relative hidden md:w-screen max-w-[39rem] lg:max-w-[40rem] md:flex place-content-end' alt="" />
           </div>
 
-          <div className=' max-w-md mt-[100px] px-12 flex flex-col gap-4 items-baseline'>
+          <div className='lg:pb-10 max-w-md mt-[100px] px-12 flex flex-col gap-4 items-baseline'>
             <img src={ctaimg2} className='h-8' alt="" />
             <h2 class=' text-4xl font-bold'>Taste it, love it or we’ll replace it… Guaranteed!</h2>
 
