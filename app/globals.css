@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+/*
+ * Tailwind v4 is configured here, in CSS — there is no tailwind.config.js.
+ * The old project defined 15 CSS variables but only used 3, and mixed the
+ * brand orange with Tailwind's orange-400/500, so three different oranges
+ * shipped on the same page. This collapses them into one brand scale.
+ */
+@theme {
+  /* Brand — built around the original --portland-orange: hsl(15 84% 57%) */
+  --color-brand-50: hsl(15 100% 96%);
+  --color-brand-100: hsl(15 95% 92%);
+  --color-brand-200: hsl(15 92% 84%);
+  --color-brand-300: hsl(15 89% 74%);
+  --color-brand-400: hsl(15 86% 65%);
+  --color-brand-500: hsl(15 84% 57%);
+  --color-brand-600: hsl(13 74% 49%);
+  --color-brand-700: hsl(11 72% 41%);
+  --color-brand-800: hsl(10 68% 34%);
+  --color-brand-900: hsl(9 62% 29%);
+
+  /* Neutrals kept from the original palette */
+  --color-ink: hsl(210 3% 13%); /* was --eerie-black */
+  --color-ink-soft: hsl(228 6% 17%); /* was --raisin-black */
+  --color-ink-muted: hsl(0 0% 45%); /* was --battleship-gray, darkened for AA */
+  --color-hairline: hsl(0 0% 91%); /* was --platinum */
+
+  --color-accent-amber: hsl(45 100% 51%);
+
+  /* Radii used across cards and strips */
+  --radius-card: 1rem;
+
+  --ease-out-soft: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+}
+
+/*
+ * `inline` is required so these resolve against the CSS variables that
+ * next/font injects at runtime rather than being frozen at build time.
+ */
+@theme inline {
+  --font-display: var(--font-bangers), cursive;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    /* The old build used w-screen (100vw) on the navbar and hero, which
+       includes the scrollbar width and caused a horizontal scrollbar. */
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility scroll-strip {
+  /* Horizontal snap strip used by the category and brand rows. The original
+     wrote min-w-[cal(...)] (15 times) and calc(20%-24px) without spaces —
+     both invalid CSS — so the widths silently never applied. This replaces
+     the whole approach with a grid, which needs no calc at all. */
+  scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
+}
