@@ -2,6 +2,9 @@
   "name": "pets-shop",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "description": "Pet's Shop — pet food e-commerce built with Next.js",
   "scripts": {
     "dev": "next dev",
