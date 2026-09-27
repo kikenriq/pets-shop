@@ -4,8 +4,8 @@ Tienda de comida y accesorios para mascotas, construida con **Next.js 16 (App Ro
 **React 19**, **TypeScript** y **Tailwind CSS 4**.
 
 Este repo era una landing estática en React 18 + Vite 4. Van completadas las fases
-0, 1 y 2: saneamiento, migración y catálogo con filtros. Hoy tiene 38 productos,
-filtrado por URL, ficha de producto completa y reseñas.
+0 a 3: saneamiento, migración, catálogo con filtros y carrito funcional. Hoy tiene
+38 productos, filtrado por URL, ficha completa, reseñas y un carrito que persiste.
 
 ---
 
@@ -23,6 +23,8 @@ npm run dev        # http://localhost:3000
 | `npm start` | Sirve el build |
 | `npm run lint` | ESLint (en Next 16 es `eslint`, ya no `next lint`) |
 | `npm run typecheck` | `tsc --noEmit` |
+| `npm test` | Vitest (55 tests) |
+| `npm run test:watch` | Vitest en modo watch |
 
 ---
 
@@ -34,11 +36,12 @@ app/
   page.tsx                   la landing
   products/page.tsx          catálogo con filtros, orden y paginación
   products/[slug]/page.tsx   ficha de producto (38 páginas SSG)
-  cart/page.tsx              carrito (estado vacío; la lógica llega en Fase 3)
+  cart/page.tsx              carrito
   globals.css                tema de Tailwind 4 (config CSS-first)
 components/
   layout/    Navbar, Footer
   sections/  Hero, TopCategories, PromoBanners, BestSellers, Features, CTA, Brands
+  cart/      CartProvider, CartDrawer, CartView
   catalog/   FilterPanel, SortSelect, Pagination
   product/   ProductGallery, AddToCartControls, ProductTabs, ReviewsSection
   ui/        ProductCard, Rating, SectionHeading, Breadcrumbs, SocialIcons
@@ -48,8 +51,11 @@ data/
 lib/
   types.ts                   modelo de datos y tipos de filtro
   filters.ts                 parseo de URL, filtrado, orden y paginación (funciones puras)
+  cart.ts                    reducer, totales y persistencia (funciones puras)
   format.ts                  formateo de precios
+  site.ts                    URL canónica según la plataforma de deploy
   fonts.ts                   Bangers + Nunito Sans vía next/font
+tests/                       55 tests de vitest sobre lib/cart.ts y lib/filters.ts
 public/images/               los 40 assets originales
 ```
 
@@ -175,14 +181,60 @@ servidor y cliente, rompiendo la hidratación, y haría que cada build saliera d
 
 ## Lo que falta (siguientes fases)
 
-**Fase 3 — Carrito.** Context + `useReducer` o Zustand, persistido en `localStorage`.
-`CartLine` ya está declarado en `lib/types.ts`. El botón "Add to cart" de la ficha y
-el contador del navbar están puestos pero sin conectar. Conviene añadir tests aquí:
-el cálculo de totales es donde los bugs cuestan dinero.
-
 **Fase 4 — Checkout.** Route Handler que cree la sesión de Stripe en el servidor. La
 clave secreta nunca debe viajar al cliente, y el precio debe recalcularse desde
 `data/catalog.ts`, no aceptarse del navegador.
+
+---
+
+## Fase 3: el carrito
+
+### La lógica vive fuera de React
+
+Todo el cálculo está en `lib/cart.ts` como funciones puras: el reducer, los totales,
+el clamp de cantidades y el parseo de lo guardado. No toca React, ni storage, ni el
+reloj. Por eso se puede testear, y por eso tiene 55 tests.
+
+`components/cart/CartProvider.tsx` es solo el pegamento: Context, el efecto que lee
+`localStorage` al montar y el que escribe en cada cambio.
+
+### Decisiones que importan
+
+**El total se calcula sobre el subtotal, no por línea.** Redondear el impuesto de
+cada línea por separado desvía el resultado: tres líneas de $3,33 dan $0,69 si
+redondeas una a una, y $0,70 si aplicas el 7% sobre los $9,99. La segunda es la
+correcta, y hay un test que lo fija.
+
+**El carrito guardado se valida contra el catálogo en cada lectura.** Un carrito en
+`localStorage` sobrevive a los deploys, así que puede referirse a un producto
+renombrado o agotado. `resolveCart` descarta esas líneas en vez de pintar una fila
+rota — la alternativa es cobrar por algo que ya no existe.
+
+**Las cantidades se re-limitan al leer, no al escribir.** El reducer no conoce el
+stock; `resolveCart` sí. Así, si el stock baja de 8 a 2 entre visitas, la línea
+guardada se ajusta sola.
+
+**El contador del navbar no aparece hasta hidratar.** El servidor no tiene
+`localStorage`, así que el primer render del cliente debe coincidir con el carrito
+vacío del servidor. El flag `hydrated` vive en el reducer, no en un `useState`
+disparado desde un efecto.
+
+**Nada revienta si `localStorage` falla.** En modo privado o con el almacenamiento
+bloqueado, las lecturas y escrituras van en `try/catch` y el carrito sigue
+funcionando durante la sesión. `parseStoredCart` nunca lanza: un JSON corrupto o
+manipulado a mano devuelve un carrito vacío, y las entradas inválidas se descartan
+conservando las buenas.
+
+### Reglas de negocio
+
+| Regla | Valor |
+|---|---|
+| Envío gratis desde | $50,00 |
+| Envío plano por debajo | $4,95 |
+| Impuesto | 7% sobre el subtotal |
+| Máximo por línea | 10 unidades (o el stock, lo que sea menor) |
+
+Están como constantes exportadas en `lib/cart.ts`, no esparcidas por los componentes.
 
 ---
 

@@ -186,7 +186,7 @@ export default async function ProductPage({ params }: { params: Params }) {
             )}
           </p>
 
-          <AddToCartControls stock={product.stock} />
+          <AddToCartControls productId={product.id} stock={product.stock} />
 
           <ul className="mt-8 space-y-3 border-t border-hairline pt-6 text-sm text-ink-muted">
             <li className="flex items-center gap-3">

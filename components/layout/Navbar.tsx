@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, ShoppingBag, X } from 'lucide-react';
+import { useCart } from '@/components/cart/CartProvider';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { totals, ready, openDrawer } = useCart();
 
   /*
    * Only the home page has a dark hero behind the header, so only there can
@@ -89,15 +91,30 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/cart"
-            aria-label="Cart, 0 items"
-            className={`flex size-11 items-center justify-center rounded-full transition-colors hover:bg-black/5 ${
+          <button
+            type="button"
+            onClick={openDrawer}
+            /* `ready` is false until the stored cart has been read, so the
+               first client render matches the server's empty cart. */
+            aria-label={
+              ready
+                ? `Cart, ${totals.itemCount} ${totals.itemCount === 1 ? 'item' : 'items'}`
+                : 'Cart'
+            }
+            className={`relative flex size-11 items-center justify-center rounded-full transition-colors hover:bg-black/5 ${
               solid ? 'text-ink' : 'text-white'
             }`}
           >
             <ShoppingBag className="size-6" aria-hidden="true" />
-          </Link>
+            {ready && totals.itemCount > 0 && (
+              <span
+                aria-hidden="true"
+                className="absolute -right-0.5 -top-0.5 flex min-w-5 items-center justify-center rounded-full bg-brand-500 px-1 text-[0.7rem] font-bold text-white tabular-nums"
+              >
+                {totals.itemCount}
+              </span>
+            )}
+          </button>
 
           <button
             type="button"
